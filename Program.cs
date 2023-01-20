@@ -11,6 +11,17 @@ namespace EmployeeWageCompute
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation");
+            int Is_Present = 1;
+            Random random = new Random();
+            int EmpCheck = random.Next(0, 2);
+            if (EmpCheck == Is_Present)
+            {
+                Console.WriteLine("Employee is present");
+            }
+            else
+            {
+                Console.WriteLine("Employee is absent");
+            }
         }
     }
 }
