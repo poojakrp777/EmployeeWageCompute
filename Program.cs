@@ -12,12 +12,13 @@ namespace EmployeeWageCompute
         public const int IS_PART_TIME = 2;
         public const int EMP_RATE_PER_HR = 20;
         public const int NUM_OF_WORKING_DAYS = 20;
+        public const int NUM_OF_WORKING_HRS = 80;
         static void Main(string[] args)
         { 
-            int empHrs = 0;int empWage = 0;int totalEmpWage = 0;int day = 1;
+            int empHrs = 0;int empWage = 0;int totalEmpWage = 0;int day = 1; int totalHrs = 0;
             Console.WriteLine("Welcome to EmployeeWage computation");
             //UC5-20days Employee Wage calculation
-            for (day = 0; day < NUM_OF_WORKING_DAYS; day++)
+            while (day <= NUM_OF_WORKING_DAYS && totalHrs <= NUM_OF_WORKING_HRS)
             {
                 Random random = new Random();
                 int empCheck = random.Next(0, 3); //0 or 1 or 2
@@ -37,9 +38,11 @@ namespace EmployeeWageCompute
                 }
                 empWage = empHrs * EMP_RATE_PER_HR;
                 totalEmpWage += empWage;
+                totalHrs += empHrs;
+                day++;
                 Console.WriteLine("Employee wage is:" + empWage);
             }
-            Console.WriteLine("Total Employee wage for {0} days:{1}", day, totalEmpWage);
+            Console.WriteLine("Total wage for {0} days:{1} and Hrs:{2}", (day - 1), totalEmpWage, (totalHrs - empHrs));
             Console.ReadLine();
         }
     }
