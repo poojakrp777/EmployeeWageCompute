@@ -16,10 +16,14 @@ namespace EmployeeWageCompute
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to EmployeeWage computation");
-            Employeewage dmart = new Employeewage("dmart", 20, 30, 120);
-            dmart.ComputeEmpWage();
-            Employeewage reliance = new Employeewage("relaince", 30, 40, 150);
-            reliance.ComputeEmpWage();
+            Employeewage empWage = new Employeewage();
+            empWage.addCompanyEmpWage("dmart", 20, 30, 120);
+            empWage.addCompanyEmpWage("relaince", 50, 80, 100);
+            empWage.addCompanyEmpWage("Deloitte", 65, 84, 67);
+
+            empWage.CalculateEmpWage();
+
+
             Console.ReadLine();
         }
     }
