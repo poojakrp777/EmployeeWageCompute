@@ -8,15 +8,20 @@ namespace EmployeeWageCompute
 {
     internal class Employeewage
     {
-        public const int IS_FULL_TIME = 1;
-        public const int IS_PART_TIME = 2;
-        //public const int EMP_RATE_PER_HR = 20;
-        //public const int NUM_OF_WORKING_DAYS = 20;
-        //public const int NUM_OF_WORKING_HRS = 80;
-
-        public int ComputeEmpWage(string Company,int EMP_RATE_PER_HR,int NUM_OF_WORKING_DAYS,int NUM_OF_WORKING_HRS)
+        public string Company;
+        public int EMP_RATE_PER_HR, NUM_OF_WORKING_DAYS, NUM_OF_WORKING_HRS;
+        public Employeewage(string Company, int EMP_RATE_PER_HR, int NUM_OF_WORKING_DAYS, int NUM_OF_WORKING_HRS)
         {
+            this.Company=Company;
+            this.EMP_RATE_PER_HR=EMP_RATE_PER_HR;
+            this.NUM_OF_WORKING_DAYS=NUM_OF_WORKING_DAYS;
+            this.NUM_OF_WORKING_HRS=NUM_OF_WORKING_HRS;
+        }
 
+        public void ComputeEmpWage()
+        {
+            const int IS_FULL_TIME = 1;
+            const int IS_PART_TIME = 2;
             int empHrs = 0; int empWage = 0; int totalEmpWage = 0; int day = 1; int totalHrs = 0;
 
 
@@ -39,13 +44,12 @@ namespace EmployeeWageCompute
                 }
                 empWage = empHrs * EMP_RATE_PER_HR;
                 totalEmpWage += empWage;
-                totalHrs += empHrs;
                 day++;
-                Console.WriteLine("Employee wage is:" + empWage);
+                totalHrs += empHrs;
 
             }
-            Console.WriteLine("Total wage for {0} days:{1} and Hrs:{2}", (day - 1), totalEmpWage, (totalHrs - empHrs));
-            return totalEmpWage;
+            Console.WriteLine("\nComapany Name: {0}", Company);
+            Console.WriteLine("Total Employee Wage is: " + totalEmpWage);
         }
     }
 }
